@@ -10,6 +10,7 @@ import { ReactComponent as LoginIcon } from '../../assets/login_icon.svg';
 import { createTheme } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useState } from 'react';
+import './SignIn.css';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const theme = createTheme({
@@ -66,53 +67,22 @@ export default function SignIn() {
   };
 
   return (
-    <div
-      className="signin-wrapper"
-      style={{
-        backgroundColor: '#BD8ADE',
-        height: '100%',
-        paddingTop: '9%',
-        paddingBottom: '258px',
-      }}
-    >
-      <Container
-        className="container"
-        component="main"
-        maxWidth="xs"
-        style={{
-          width: '28%',
-          padding: 0,
-          borderRadius: '20px',
-          backgroundColor: 'white',
-          paddingTop: '55px',
-        }}
-      >
+    <div className="signin-wrapper">
+      <Container className="container" component="main" maxWidth="xs">
         <Box
           sx={{
-            marginTop: '5px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <div
-            className="signin_title"
-            style={{
-              color: '#4F4545',
-              marginBottom: '15px',
-              font: 'Noto Sans JP',
-              fontSize: '32px',
-              fontWeight: 'bold',
-            }}
-          >
-            <LoginIcon fontSize="small" /> ログイン
+          <div className="signin-title">
+            <LoginIcon fontSize="small" style={{ marginRight: '8px' }} />{' '}
+            ログイン
           </div>
           <Box component="form" noValidate sx={{ mt: 2 }}>
-            <Box
-              sx={{ display: 'flex', alignItems: 'flex-end' }}
-              style={{ marginBottom: '20px' }}
-            >
-              <SmsIcon style={{ marginRight: '10px' }} />
+            <Box className="form-box">
+              <SmsIcon className="icon-margin" />
               <TextField
                 fullWidth
                 id="email"
@@ -124,11 +94,8 @@ export default function SignIn() {
                 onChange={handleEmail}
               />
             </Box>
-            <Box
-              sx={{ display: 'flex', alignItems: 'flex-end' }}
-              style={{ marginBottom: '20px' }}
-            >
-              <LockIcon style={{ marginRight: '10px' }} />
+            <Box className="form-box">
+              <LockIcon className="icon-margin" />
               <TextField
                 fullWidth
                 id="password"
@@ -141,49 +108,22 @@ export default function SignIn() {
               />
             </Box>
             <Button
-              className="login_btn"
+              className="login-btn"
               fullWidth
               variant="contained"
-              sx={{
-                mt: 7,
-                mb: 6,
-                backgroundImage: 'linear-gradient(to right, #DC52FF, #887EFF)',
-                color: 'white', // Change the background color here
-                borderRadius: '12px',
-                height: '42px',
-              }}
               onClick={handleSignIn}
             >
               ログイン
             </Button>
             <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-              <div style={{ marginBottom: '25px' }}>
-                <Link
-                  href="#"
-                  variant="body2"
-                  style={{
-                    color: '#60828C',
-                    fontStyle: 'Inter',
-                    fontSize: '16px',
-                    textDecoration: 'none',
-                  }}
-                >
+              <div style={{ marginBottom: '20px' }}>
+                <RouterLink href="#" variant="body2" className="link-style">
                   パスワードを忘れた
-                </Link>
+                </RouterLink>
               </div>
               <div>
                 アカウントをお持ちでない方は
-                <RouterLink
-                  to="/signup"
-                  href="#"
-                  variant="body2"
-                  style={{
-                    color: '#AD26FF',
-                    fontStyle: 'Inter',
-                    fontSize: '16px',
-                    textDecoration: 'none',
-                  }}
-                >
+                <RouterLink to="/signup" className="signup-link">
                   こちら
                 </RouterLink>
               </div>
